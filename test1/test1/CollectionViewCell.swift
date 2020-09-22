@@ -35,8 +35,8 @@ class CustomViewCell: UICollectionViewCell {
         super.init(frame: frame)
         backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
         line.frame = CGRect(x: 0, y: 48, width:  (self.frame.width) - 17 , height: 1 / UIScreen.main.scale)
-        labelName.frame = CGRect(x: 0, y: -10, width: self.frame.width, height: self.frame.height)
-        labelPrice.frame = CGRect(x: 0, y: 10, width: self.frame.width, height: self.frame.height)
+        labelName.frame = CGRect(x: 0, y: 0, width: self.frame.width, height: 21)
+        labelPrice.frame = CGRect(x: 0, y: 25, width: self.frame.width, height: 21)
         
         addSubview(labelName)
         addSubview(labelPrice)

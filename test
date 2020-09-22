@@ -16,6 +16,9 @@ class CustomViewController: UIViewController, UICollectionViewDataSource, UIColl
         layout.scrollDirection = .vertical
         //layout.minimumLineSpacing = 2
         layout.itemSize = CGSize(width: view.frame.size.width, height: view.frame.size.height)
+        if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
+          flowLayout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        }
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView?.register(CustomViewCell.self, forCellWithReuseIdentifier: CustomViewCell.identifier)
         collectionView?.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
@@ -30,22 +33,24 @@ class CustomViewController: UIViewController, UICollectionViewDataSource, UIColl
         guard error == nil else {return}
             do {
                 let dataProp = try JSONDecoder().decode(Response.self, from: data)
+                
                 print(dataProp.data[0])
+                
+                DispatchQueue.main.async {
+                    self.collectionView?.reloadData()
+                }
                 } catch let error {
                   print(error)
-                    DispatchQueue.main.async {
-                     self.collectionView?.reloadData()
-                    }
-            }
+                }
+          
     }.resume()
 }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView?.frame = view.bounds
-          }
-
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return  dataArray.count
+        return  7
        }
        func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomViewCell.identifier, for: indexPath) as! CustomViewCell
@@ -59,7 +64,7 @@ class CustomViewController: UIViewController, UICollectionViewDataSource, UIColl
             let labelName: UILabel = {
                 let label = UILabel(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 21))
                 label.textAlignment = .left
-                label.text = "name:\(dataArray[indexPath.item].name)"
+                label.text = "name"
                 return label
             }()
             //цена
@@ -67,7 +72,7 @@ class CustomViewController: UIViewController, UICollectionViewDataSource, UIColl
                 let label = UILabel(frame: CGRect(x: 0, y: 25, width: view.frame.width, height: 21))
                 label.textAlignment = .left
                 label.textColor = UIColor(red: 0.459, green: 0.459, blue: 0.459, alpha: 1)
-                label.text = "price: \(dataArray[indexPath.item].price)"
+                label.text = "price"
                 return label
             }()
             cell.addSubview(labelName)

@@ -18,7 +18,6 @@
 		FAE53EF72501357C00C3225D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE53EF12501349D00C3225D /* RealmSwift.framework */; };
 		FAE53EFA2501357E00C3225D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE53EF02501349D00C3225D /* Realm.framework */; };
 		FAEA33F024F64E4D00696919 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA33EF24F64E4D00696919 /* AppDelegate.swift */; };
-		FAEA33F224F64E4D00696919 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA33F124F64E4D00696919 /* SceneDelegate.swift */; };
 		FAEA33F424F64E4D00696919 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA33F324F64E4D00696919 /* ViewController.swift */; };
 		FAEA33F924F64E5200696919 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAEA33F824F64E5200696919 /* Assets.xcassets */; };
 		FAEA33FC24F64E5200696919 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEA33FA24F64E5200696919 /* LaunchScreen.storyboard */; };
@@ -41,7 +40,6 @@
 		FAE53EF12501349D00C3225D /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEA33EC24F64E4D00696919 /* test1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEA33EF24F64E4D00696919 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FAEA33F124F64E4D00696919 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FAEA33F324F64E4D00696919 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FAEA33F824F64E5200696919 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAEA33FB24F64E5200696919 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -109,7 +107,6 @@
 				FAEA33EF24F64E4D00696919 /* AppDelegate.swift */,
 				FA05370E2517C92300E1E89D /* CollectionViewCell.swift */,
 				FA6FA0C1250899E40011CB37 /* Main.storyboard */,
-				FAEA33F124F64E4D00696919 /* SceneDelegate.swift */,
 				FAEA33F324F64E4D00696919 /* ViewController.swift */,
 				FA6FA0C325089A160011CB37 /* Main.swift */,
 				FAEA33F824F64E5200696919 /* Assets.xcassets */,
@@ -269,7 +266,6 @@
 				FAEA33F424F64E4D00696919 /* ViewController.swift in Sources */,
 				FAEA33F024F64E4D00696919 /* AppDelegate.swift in Sources */,
 				FA6FA0C425089A160011CB37 /* Main.swift in Sources */,
-				FAEA33F224F64E4D00696919 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

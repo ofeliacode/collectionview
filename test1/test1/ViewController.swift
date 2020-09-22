@@ -23,7 +23,6 @@ class CustomViewController: UIViewController, UICollectionViewDataSource, UIColl
         collectionView?.dataSource = self
         collectionView?.delegate = self
         view.addSubview(collectionView!)
-        
         //data
         let urlString = "https://gorest.co.in/public-api/products"
         guard let url = URL(string: urlString) else {return}
@@ -34,16 +33,13 @@ class CustomViewController: UIViewController, UICollectionViewDataSource, UIColl
                 let dataProp = try JSONDecoder().decode(Response.self, from: data)
                 self.dataArray = dataProp.data
                 print(dataProp.data[0])
-                
                 DispatchQueue.main.async {
                     self.collectionView?.reloadData()
                 }
             } catch let error {
                 print(error)
             }
-            
         }.resume()
-        
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
@@ -54,7 +50,8 @@ class CustomViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomViewCell.identifier, for: indexPath) as! CustomViewCell
-        cell.
+        cell.labelName.text = "name: \(dataArray[indexPath.item].name)"
+        cell.labelPrice.text = "price: \(dataArray[indexPath.item].price)"
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

@@ -5,7 +5,6 @@
 //  Copyright © 2020 Офелия Баширова. All rights reserved.
 
 import UIKit
-import SnapKit
 
 class CustomViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     var collectionView: UICollectionView?

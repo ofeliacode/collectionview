@@ -3,20 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		849FE287250E23FD00EF9279 /* Loc.strings in Resources */ = {isa = PBXBuildFile; fileRef = 849FE289250E23FD00EF9279 /* Loc.strings */; };
 		B9328C656BD4E2728F9A4451 /* Pods_test1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D96AC8B48E49D62D4E1A2AD1 /* Pods_test1.framework */; };
 		FA05370F2517C92300E1E89D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA05370E2517C92300E1E89D /* CollectionViewCell.swift */; };
-		FA6FA0C2250899E40011CB37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6FA0C1250899E40011CB37 /* Main.storyboard */; };
-		FA6FA0C425089A160011CB37 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6FA0C325089A160011CB37 /* Main.swift */; };
 		FA9367562519072100947823 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9367552519072100947823 /* Data.swift */; };
-		FAA613A5250CE35400D739C0 /* Rswift in Frameworks */ = {isa = PBXBuildFile; productRef = FAA613A4250CE35400D739C0 /* Rswift */; };
-		FAD232B0250B91C100330CEB /* Rswift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD232AF250B91C100330CEB /* Rswift.framework */; };
-		FAE53EF72501357C00C3225D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE53EF12501349D00C3225D /* RealmSwift.framework */; };
-		FAE53EFA2501357E00C3225D /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAE53EF02501349D00C3225D /* Realm.framework */; };
 		FAEA33F024F64E4D00696919 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA33EF24F64E4D00696919 /* AppDelegate.swift */; };
 		FAEA33F424F64E4D00696919 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA33F324F64E4D00696919 /* ViewController.swift */; };
 		FAEA33F924F64E5200696919 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAEA33F824F64E5200696919 /* Assets.xcassets */; };
@@ -26,13 +19,9 @@
 /* Begin PBXFileReference section */
 		7E23FA0CD5545C03724C63C1 /* Pods-test1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test1.debug.xcconfig"; path = "Target Support Files/Pods-test1/Pods-test1.debug.xcconfig"; sourceTree = "<group>"; };
 		849FE284250E23C400EF9279 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
-		849FE288250E23FD00EF9279 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Loc.strings; sourceTree = "<group>"; };
-		849FE28A250E240100EF9279 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Loc.strings; sourceTree = "<group>"; };
 		8604436A4C86A419A3C3600D /* Pods-test1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test1.release.xcconfig"; path = "Target Support Files/Pods-test1/Pods-test1.release.xcconfig"; sourceTree = "<group>"; };
 		D96AC8B48E49D62D4E1A2AD1 /* Pods_test1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_test1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA05370E2517C92300E1E89D /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		FA6FA0C1250899E40011CB37 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		FA6FA0C325089A160011CB37 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		FA9367552519072100947823 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		FAB642D5250B639700CE2012 /* Rswift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Rswift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD232AF250B91C100330CEB /* Rswift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Rswift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,11 +40,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAA613A5250CE35400D739C0 /* Rswift in Frameworks */,
-				FAE53EFA2501357E00C3225D /* Realm.framework in Frameworks */,
 				B9328C656BD4E2728F9A4451 /* Pods_test1.framework in Frameworks */,
-				FAE53EF72501357C00C3225D /* RealmSwift.framework in Frameworks */,
-				FAD232B0250B91C100330CEB /* Rswift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -106,13 +91,10 @@
 			children = (
 				FAEA33EF24F64E4D00696919 /* AppDelegate.swift */,
 				FA05370E2517C92300E1E89D /* CollectionViewCell.swift */,
-				FA6FA0C1250899E40011CB37 /* Main.storyboard */,
 				FAEA33F324F64E4D00696919 /* ViewController.swift */,
-				FA6FA0C325089A160011CB37 /* Main.swift */,
 				FAEA33F824F64E5200696919 /* Assets.xcassets */,
 				FAEA33FA24F64E5200696919 /* LaunchScreen.storyboard */,
 				FAEA33FD24F64E5200696919 /* Info.plist */,
-				849FE289250E23FD00EF9279 /* Loc.strings */,
 				FA9367552519072100947823 /* Data.swift */,
 			);
 			path = test1;
@@ -138,7 +120,6 @@
 			);
 			name = test1;
 			packageProductDependencies = (
-				FAA613A4250CE35400D739C0 /* Rswift */,
 			);
 			productName = test1;
 			productReference = FAEA33EC24F64E4D00696919 /* test1.app */;
@@ -170,7 +151,6 @@
 			);
 			mainGroup = FAEA33E324F64E4C00696919;
 			packageReferences = (
-				FAA613A3250CE35400D739C0 /* XCRemoteSwiftPackageReference "R.swift" */,
 			);
 			productRefGroup = FAEA33ED24F64E4D00696919 /* Products */;
 			projectDirPath = "";
@@ -186,8 +166,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA6FA0C2250899E40011CB37 /* Main.storyboard in Resources */,
-				849FE287250E23FD00EF9279 /* Loc.strings in Resources */,
 				FAEA33FC24F64E5200696919 /* LaunchScreen.storyboard in Resources */,
 				FAEA33F924F64E5200696919 /* Assets.xcassets in Resources */,
 			);
@@ -243,16 +221,15 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"$TEMP_DIR/rswift-lastrun",
 			);
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$SRCROOT/test1/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/test1/R.generated.swift\"\n";
+			shellScript = "
+";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -265,22 +242,12 @@
 				FA9367562519072100947823 /* Data.swift in Sources */,
 				FAEA33F424F64E4D00696919 /* ViewController.swift in Sources */,
 				FAEA33F024F64E4D00696919 /* AppDelegate.swift in Sources */,
-				FA6FA0C425089A160011CB37 /* Main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		849FE289250E23FD00EF9279 /* Loc.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				849FE288250E23FD00EF9279 /* en */,
-				849FE28A250E240100EF9279 /* ru */,
-			);
-			name = Loc.strings;
-			sourceTree = "<group>";
-		};
 		FAEA33FA24F64E5200696919 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -469,25 +436,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		FAA613A3250CE35400D739C0 /* XCRemoteSwiftPackageReference "R.swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mac-cain13/R.swift.Library";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.2.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		FAA613A4250CE35400D739C0 /* Rswift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = FAA613A3250CE35400D739C0 /* XCRemoteSwiftPackageReference "R.swift" */;
-			productName = Rswift;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FAEA33E424F64E4D00696919 /* Project object */;
 }

@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         let vc = UINavigationController(rootViewController: CustomViewController())
-        vc.title = "Products"
         window?.rootViewController = vc
         return true
     }

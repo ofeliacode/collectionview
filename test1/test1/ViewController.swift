@@ -7,18 +7,25 @@
 import UIKit
 
 class CustomViewController: UIViewController {
-    // MARK: Subviews
-
-    private var collectionView: UICollectionView = {
+    
+    // MARK: Layout
+    
+    var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 15.0, left: 0.0, bottom: 0.0, right: 0.0)
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        let width = UIScreen.main.bounds.size.width
+        layout.estimatedItemSize = CGSize(width: width, height: 10)
+        return layout
+    }()
+    // MARK: Subviews
+    
+    private var collectionView: UICollectionView = {
+        let collectionView = UICollectionView()
         collectionView.register(CustomViewCell.self, forCellWithReuseIdentifier: CustomViewCell.identifier)
         collectionView.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
         return collectionView
     }()
-
+    
     // MARK: Private properties
 
     private var dataArray = [Datas]()
@@ -27,11 +34,10 @@ class CustomViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         title = "Products"
-
         setupSubviews()
         fetchProducts()
+        collectionView.collectionViewLayout = layout
     }
 
     override func viewDidLayoutSubviews() {
@@ -45,6 +51,16 @@ class CustomViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         view.addSubview(collectionView)
+    }
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        layout.estimatedItemSize = CGSize(width: view.bounds.size.width, height: 10)
+        super.traitCollectionDidChange(previousTraitCollection)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        layout.estimatedItemSize = CGSize(width: view.bounds.size.width, height: 10)
+        layout.invalidateLayout()
+        super.viewWillTransition(to: size, with: coordinator)
     }
 
     private func fetchProducts() {
@@ -74,15 +90,12 @@ extension CustomViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataArray.count
     }
-
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomViewCell.identifier, for: indexPath) as! CustomViewCell
         cell.labelName.text = "name: \(dataArray[indexPath.item].name)"
         cell.labelPrice.text = "price: \(dataArray[indexPath.item].price)"
-        return cell
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (view.frame.width)-17, height: 50)
+        cell.labelDescription.text = "description: \(dataArray[indexPath.item].description)"
+        cell.labelDescription.numberOfLines = 0
+       return cell
     }
 }

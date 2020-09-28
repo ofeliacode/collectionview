@@ -29,10 +29,8 @@ class CustomViewController: UICollectionViewController {
         title = "Products"
         collectionView.register(CustomViewCell.self, forCellWithReuseIdentifier: CustomViewCell.identifier)
         collectionView.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
-               
-        setupSubviews()
-        fetchProducts()
         collectionView.collectionViewLayout = layout
+        fetchProducts()
     }
 
     override func viewDidLayoutSubviews() {
@@ -42,9 +40,6 @@ class CustomViewController: UICollectionViewController {
 
     // MARK: Private
 
-    private func setupSubviews() {
-        view.addSubview(collectionView)
-    }
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         layout.estimatedItemSize = CGSize(width: view.bounds.size.width, height: 10)
         super.traitCollectionDidChange(previousTraitCollection)
@@ -83,9 +78,10 @@ class CustomViewController: UICollectionViewController {
         cell.labelName.text = "name: \(dataArray[indexPath.item].name)"
         cell.labelPrice.text = "price: \(dataArray[indexPath.item].price)"
         cell.labelDescription.text = "description: \(dataArray[indexPath.item].description)"
-        cell.labelDescription.numberOfLines = 0
+        
        return cell
     }
+   
 }
 
 // MARK: UICollectionViewDataSource & UICollectionViewDelegateFlowLayout

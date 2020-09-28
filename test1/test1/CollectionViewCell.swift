@@ -14,7 +14,7 @@ class CustomViewCell: UICollectionViewCell {
     //линия
     let line: UIView = {
         let line = UIView()
-        line.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.4)
+        line.backgroundColor = .black
         line.translatesAutoresizingMaskIntoConstraints = false
         return line
     }()
@@ -59,33 +59,27 @@ class CustomViewCell: UICollectionViewCell {
         labelName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 3).isActive = true
         labelName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         labelName.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
-        
+        //labelName.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
+
         contentView.addSubview(labelPrice)
         
         labelPrice.topAnchor.constraint(equalTo: labelName.bottomAnchor, constant: 7).isActive = true
         labelPrice.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         labelPrice.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
-        
+        //labelPrice.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
+
         
         contentView.addSubview(labelDescription)
-        
         labelDescription.topAnchor.constraint(equalTo: labelPrice.bottomAnchor, constant: 11).isActive = true
         labelDescription.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
         labelDescription.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
         labelDescription.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
-        
-        labelDescription.addSubview(line)
-        
-        line.topAnchor.constraint(equalTo: labelDescription.bottomAnchor, constant: 3).isActive = true
-        line.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
+
+        contentView.addSubview(line)
         line.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         line.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
         line.heightAnchor.constraint(equalTo: heightAnchor, constant: 1).isActive = true
-       
-        if let lastSubview = contentView.subviews.last {
-            
-            contentView.bottomAnchor.constraint(equalTo: lastSubview.bottomAnchor, constant: 10).isActive = true
-        }
+        line.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
     }
     
     lazy var width: NSLayoutConstraint = {

@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        let vc = UINavigationController(rootViewController: CustomViewController())
+        let vc = UINavigationController(rootViewController: CustomViewController(collectionViewLayout: UICollectionViewFlowLayout()))
         window?.rootViewController = vc
         return true
     }

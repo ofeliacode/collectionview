@@ -6,7 +6,7 @@
 
 import UIKit
 
-class CustomViewController: UIViewController {
+class CustomViewController: UICollectionViewController {
     
     // MARK: Layout
     
@@ -16,14 +16,6 @@ class CustomViewController: UIViewController {
         let width = UIScreen.main.bounds.size.width
         layout.estimatedItemSize = CGSize(width: width, height: 10)
         return layout
-    }()
-    // MARK: Subviews
-    
-    private var collectionView: UICollectionView = {
-        let collectionView = UICollectionView()
-        collectionView.register(CustomViewCell.self, forCellWithReuseIdentifier: CustomViewCell.identifier)
-        collectionView.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
-        return collectionView
     }()
     
     // MARK: Private properties
@@ -35,6 +27,9 @@ class CustomViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Products"
+        collectionView.register(CustomViewCell.self, forCellWithReuseIdentifier: CustomViewCell.identifier)
+        collectionView.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
+               
         setupSubviews()
         fetchProducts()
         collectionView.collectionViewLayout = layout
@@ -48,8 +43,6 @@ class CustomViewController: UIViewController {
     // MARK: Private
 
     private func setupSubviews() {
-        collectionView.dataSource = self
-        collectionView.delegate = self
         view.addSubview(collectionView)
     }
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -82,15 +75,10 @@ class CustomViewController: UIViewController {
             }
         }.resume()
     }
-}
-
-// MARK: UICollectionViewDataSource & UICollectionViewDelegateFlowLayout
-
-extension CustomViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataArray.count
     }
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomViewCell.identifier, for: indexPath) as! CustomViewCell
         cell.labelName.text = "name: \(dataArray[indexPath.item].name)"
         cell.labelPrice.text = "price: \(dataArray[indexPath.item].price)"
@@ -99,3 +87,6 @@ extension CustomViewController: UICollectionViewDataSource, UICollectionViewDele
        return cell
     }
 }
+
+// MARK: UICollectionViewDataSource & UICollectionViewDelegateFlowLayout
+

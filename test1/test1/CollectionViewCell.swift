@@ -15,6 +15,7 @@ class CustomViewCell: UICollectionViewCell {
     let line: UIView = {
         let line = UIView()
         line.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.4)
+        line.translatesAutoresizingMaskIntoConstraints = false
         return line
     }()
     
@@ -23,6 +24,7 @@ class CustomViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.text = "name:"
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     //цена
@@ -30,6 +32,7 @@ class CustomViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.textColor = UIColor(red: 0.459, green: 0.459, blue: 0.459, alpha: 1)
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "price:"
         return label
     }()
@@ -37,6 +40,7 @@ class CustomViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .left
         label.textColor = UIColor(red: 0.459, green: 0.459, blue: 0.459, alpha: 1)
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "description:"
         return label
     }()
@@ -49,13 +53,7 @@ class CustomViewCell: UICollectionViewCell {
         setup()
     }
     func setup(){
-        
-        labelName.translatesAutoresizingMaskIntoConstraints = false
-        labelPrice.translatesAutoresizingMaskIntoConstraints = false
-        labelDescription.translatesAutoresizingMaskIntoConstraints = false
-        
         contentView.addSubview(labelName)
-        
         labelName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 3).isActive = true
         labelName.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         labelName.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true

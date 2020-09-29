@@ -5,10 +5,11 @@
 //  Copyright © 2020 Офелия Баширова. All rights reserved.
 
 import UIKit
-
+import Foundation
 class CustomViewController: UICollectionViewController {
     
     // MARK: Layout
+   
     
     var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -20,7 +21,7 @@ class CustomViewController: UICollectionViewController {
     
     // MARK: Private properties
 
-    private var dataArray = [Datas]()
+     var dataArray = [Datas]()
 
     // MARK: UIViewController
 
@@ -51,7 +52,7 @@ class CustomViewController: UICollectionViewController {
         super.viewWillTransition(to: size, with: coordinator)
     }
 
-    private func fetchProducts() {
+    func fetchProducts() {
         let urlString = "https://gorest.co.in/public-api/products"
         guard let url = URL(string: urlString) else {return}
         URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
@@ -81,7 +82,14 @@ class CustomViewController: UICollectionViewController {
         
        return cell
     }
-   
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        let vc = DetailViewController()
+        vc.labelName = dataArray[indexPath.item].name
+        vc.labelPrice = dataArray[indexPath.item].price
+        vc.labelDescription = dataArray[indexPath.item].description
+        self.navigationController?.pushViewController(vc, animated: true)
+      }
 }
 
 // MARK: UICollectionViewDataSource & UICollectionViewDelegateFlowLayout

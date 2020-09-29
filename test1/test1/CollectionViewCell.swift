@@ -14,7 +14,7 @@ class CustomViewCell: UICollectionViewCell {
     //линия
     let line: UIView = {
         let line = UIView()
-        line.backgroundColor = .black
+        line.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
         line.translatesAutoresizingMaskIntoConstraints = false
         return line
     }()
@@ -68,17 +68,19 @@ class CustomViewCell: UICollectionViewCell {
         labelPrice.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
         //labelPrice.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
 
-        
         contentView.addSubview(labelDescription)
         labelDescription.topAnchor.constraint(equalTo: labelPrice.bottomAnchor, constant: 11).isActive = true
-        labelDescription.leftAnchor.constraint(equalTo: leftAnchor, constant: 16).isActive = true
-        labelDescription.rightAnchor.constraint(equalTo: rightAnchor, constant: -16).isActive = true
+        labelDescription.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
+        labelDescription.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
         labelDescription.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
-
+        contentView.bottomAnchor.constraint(equalTo: labelDescription.bottomAnchor, constant: 20).isActive = true
+        
         contentView.addSubview(line)
+        //line.topAnchor.constraint(equalTo: labelPrice.bottomAnchor, constant: 11).isActive = true
         line.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         line.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
-        line.heightAnchor.constraint(equalTo: heightAnchor, constant: 1).isActive = true
+        line.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
+        line.heightAnchor.constraint(equalToConstant: 1).isActive = true
         line.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
     }
     

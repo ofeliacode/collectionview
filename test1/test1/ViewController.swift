@@ -88,7 +88,8 @@ class CustomViewController: UICollectionViewController {
         vc.labelName = dataArray[indexPath.item].name
         vc.labelPrice = dataArray[indexPath.item].price
         vc.labelDescription = dataArray[indexPath.item].description
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        self.present(vc, animated: true, completion: nil)
       }
 }
 

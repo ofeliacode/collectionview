@@ -10,13 +10,10 @@ import UIKit
 import SnapKit
 class DetailViewController: UIViewController {
     
-    //let detailViewController = DetailViewController()
     var labelName = ""
     var labelPrice = ""
     var labelDescription = ""
-    
-    
-    
+    //var data: dataArray?
     fileprivate lazy var scrollView: UIScrollView = {
         let scrollview = UIScrollView()
         scrollview.frame =  CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
@@ -38,7 +35,6 @@ class DetailViewController: UIViewController {
     var labelName2: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.text = labelName
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         return label
@@ -48,7 +44,6 @@ class DetailViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .left
         label.textColor = UIColor(red: 0.459, green: 0.459, blue: 0.459, alpha: 1)
-        label.text = "price: \(labelPrice)"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         return label
@@ -57,7 +52,6 @@ class DetailViewController: UIViewController {
         let label = UILabel()
         label.textAlignment = .left
         label.textColor = UIColor(red: 0.459, green: 0.459, blue: 0.459, alpha: 1)
-        label.text = "description: \(labelDescription)"
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         return label
@@ -75,31 +69,37 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
-        self.title = labelName
-        // var image = UIImage(named: "arrow")
-        //image = image?.withRenderingMode(.alwaysOriginal)
-        //let item = UIBarButtonItem(image: image, style:.plain, target: nil, action: nil)
-        //navigationController?.navigationItem.backBarButtonItem =  item
-        
-        
-        self.navigationController?.navigationBar.barTintColor = .white
-        
         let stackView = mainStackView()
         view.addSubview(stackView)
         view.addSubview(labelName2)
         view.addSubview(labelPrice2)
         view.addSubview(labelDescription2)
-        view.snp.makeConstraints { make in
-            make.edges.equalTo(self.view)
-        }
-        stackView.snp.makeConstraints { make in
-            make.bottom.equalTo(-623)
-            make.left.equalTo(12)
-            make.right.equalTo(-12)
-            make.height.equalTo(150)
-            make.centerX.equalTo(self.view)
-        }
+        self.title = labelName
+        labelName2.text = labelName
+        labelPrice2.text = labelPrice
+        labelDescription2.text = labelDescription
+        // var image = UIImage(named: "arrow")
+        //image = image?.withRenderingMode(.alwaysOriginal)
+        //let item = UIBarButtonItem(image: image, style:.plain, target: nil, action: nil)
+        //navigationController?.navigationItem.backBarButtonItem =  item
+        self.navigationController?.navigationBar.barTintColor = .white
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        view.translatesAutoresizingMaskIntoConstraints = false
+
+       view.snp.makeConstraints { make in
+        make.edges.equalTo(self.view).offset(30)
+       }
+       stackView.snp.makeConstraints { make in
+         make.top.equalTo(50)
+           make.bottom.equalTo(-123)
+           make.left.equalTo(12)
+           make.right.equalTo(-12)
+           make.height.equalTo(150)
+           make.centerX.equalTo(self.view)
+          
+       }
     }
+    
     
     
 }

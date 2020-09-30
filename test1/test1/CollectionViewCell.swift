@@ -59,14 +59,12 @@ class CustomViewCell: UICollectionViewCell {
         labelName.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 3).isActive = true
         labelName.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         labelName.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
-        //labelName.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
 
         contentView.addSubview(labelPrice)
         
         labelPrice.topAnchor.constraint(equalTo: labelName.bottomAnchor, constant: 7).isActive = true
         labelPrice.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         labelPrice.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
-        //labelPrice.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true
 
         contentView.addSubview(labelDescription)
         labelDescription.topAnchor.constraint(equalTo: labelPrice.bottomAnchor, constant: 11).isActive = true
@@ -76,7 +74,6 @@ class CustomViewCell: UICollectionViewCell {
         contentView.bottomAnchor.constraint(equalTo: labelDescription.bottomAnchor, constant: 20).isActive = true
         
         contentView.addSubview(line)
-        //line.topAnchor.constraint(equalTo: labelPrice.bottomAnchor, constant: 11).isActive = true
         line.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
         line.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
         line.widthAnchor.constraint(equalTo: contentView.widthAnchor).isActive = true

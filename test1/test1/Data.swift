@@ -9,10 +9,10 @@
 import Foundation
 
 struct Response: Decodable {
-   let data: [Datas]
+    let data: [Datas]
 }
 struct Datas: Decodable {
-         let name: String
-         let price: String
-         let description: String
+    let name: String
+    let price: String
+    let description: String
 }

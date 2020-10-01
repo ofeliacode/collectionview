@@ -11,7 +11,7 @@
 		FA9367562519072100947823 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9367552519072100947823 /* Data.swift */; };
 		FABBA24C2522422000BCA066 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABBA24B2522422000BCA066 /* DetailViewController.swift */; };
 		FAEA33F024F64E4D00696919 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA33EF24F64E4D00696919 /* AppDelegate.swift */; };
-		FAEA33F424F64E4D00696919 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA33F324F64E4D00696919 /* ViewController.swift */; };
+		FAEA33F424F64E4D00696919 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA33F324F64E4D00696919 /* CustomViewController.swift */; };
 		FAEA33F924F64E5200696919 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAEA33F824F64E5200696919 /* Assets.xcassets */; };
 		FAEA33FC24F64E5200696919 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAEA33FA24F64E5200696919 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -24,7 +24,7 @@
 		FABBA24B2522422000BCA066 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FAEA33EC24F64E4D00696919 /* test1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = test1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAEA33EF24F64E4D00696919 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FAEA33F324F64E4D00696919 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FAEA33F324F64E4D00696919 /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		FAEA33F824F64E5200696919 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAEA33FB24F64E5200696919 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAEA33FD24F64E5200696919 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 			children = (
 				FAEA33EF24F64E4D00696919 /* AppDelegate.swift */,
 				FA05370E2517C92300E1E89D /* CollectionViewCell.swift */,
-				FAEA33F324F64E4D00696919 /* ViewController.swift */,
+				FAEA33F324F64E4D00696919 /* CustomViewController.swift */,
 				FAEA33F824F64E5200696919 /* Assets.xcassets */,
 				FAEA33FA24F64E5200696919 /* LaunchScreen.storyboard */,
 				FAEA33FD24F64E5200696919 /* Info.plist */,
@@ -222,7 +222,7 @@
 				FA05370F2517C92300E1E89D /* CollectionViewCell.swift in Sources */,
 				FA9367562519072100947823 /* Data.swift in Sources */,
 				FABBA24C2522422000BCA066 /* DetailViewController.swift in Sources */,
-				FAEA33F424F64E4D00696919 /* ViewController.swift in Sources */,
+				FAEA33F424F64E4D00696919 /* CustomViewController.swift in Sources */,
 				FAEA33F024F64E4D00696919 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

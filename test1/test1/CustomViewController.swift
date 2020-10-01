@@ -1,4 +1,4 @@
-//  ViewController.swift
+//  CustomViewController.swift
 //  test1
 //
 //  Created by Офелия Баширова on 26.08.2020.
@@ -6,10 +6,10 @@
 
 import UIKit
 import Foundation
+
 class CustomViewController: UICollectionViewController {
     
     // MARK: Layout
-   
     
     var layout: UICollectionViewFlowLayout = {
         let layout = UICollectionViewFlowLayout()
@@ -21,7 +21,7 @@ class CustomViewController: UICollectionViewController {
     
     // MARK: Private properties
 
-     var dataArray = [Datas]()
+    var dataArray = [Datas]()
 
     // MARK: UIViewController
 
@@ -71,17 +71,22 @@ class CustomViewController: UICollectionViewController {
             }
         }.resume()
     }
+
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return dataArray.count
     }
+
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomViewCell.identifier, for: indexPath) as! CustomViewCell
-        cell.labelName.text = "name: \(dataArray[indexPath.item].name)"
-        cell.labelPrice.text = "price: \(dataArray[indexPath.item].price)"
-        cell.labelDescription.text = "description: \(dataArray[indexPath.item].description)"
+        cell.setup(
+            name: "name: \(dataArray[indexPath.item].name + dataArray[indexPath.item].name)",
+            price: "price: \(dataArray[indexPath.item].price)",
+            description: "description: \(dataArray[indexPath.item].description)"
+        )
         
-       return cell
+        return cell
     }
+
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
         let vc = DetailViewController()
@@ -89,9 +94,21 @@ class CustomViewController: UICollectionViewController {
         vc.labelPrice = dataArray[indexPath.item].price
         vc.labelDescription = dataArray[indexPath.item].description
         
-      self.navigationController?.pushViewController(vc, animated: true)
-      }
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
-// MARK: UICollectionViewDataSource & UICollectionViewDelegateFlowLayout
-
+extension CustomViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        return CustomViewCell.calculateSize(
+            fittingSize: CGSize(width: collectionView.frame.width, height: .greatestFiniteMagnitude),
+            name: "name: \(dataArray[indexPath.item].name + dataArray[indexPath.item].name)",
+            price: "price: \(dataArray[indexPath.item].price)",
+            description: "description: \(dataArray[indexPath.item].description)"
+        )
+    }
+}

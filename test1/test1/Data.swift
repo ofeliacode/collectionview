@@ -10,9 +10,19 @@ import Foundation
 
 struct Response: Decodable {
     let data: [Datas]
+    let meta: Meta
 }
 struct Datas: Decodable {
     let name: String
     let price: String
     let description: String
+    let discount_amount: String
+}
+struct Meta: Decodable {
+    let pagination: Pagination
+}
+struct Pagination: Decodable {
+    let total: Int
+    let pages: Int
+    let limit: Int
 }

@@ -13,6 +13,7 @@ class DetailViewController: UIViewController {
     var labelName = ""
     var labelPrice = ""
     var labelDescription = ""
+    var labelDiscount = ""
     //var data: dataArray?
     fileprivate lazy var scrollView: UIScrollView = {
         let scrollview = UIScrollView()
@@ -35,6 +36,8 @@ class DetailViewController: UIViewController {
     var labelName2: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+
         label.numberOfLines = 0
         return label
     }()
@@ -42,24 +45,30 @@ class DetailViewController: UIViewController {
     var labelPrice2: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
-        label.textColor = UIColor(red: 0.459, green: 0.459, blue: 0.459, alpha: 1)
-        label.numberOfLines = 0
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 16, weight: .bold)
+        label.numberOfLines = 1
         return label
     }()
     var labelDescription2: UILabel = {
         let label = UILabel()
         label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
         label.textColor = UIColor(red: 0.459, green: 0.459, blue: 0.459, alpha: 1)
         label.numberOfLines = 0
         return label
     }()
-    func mainStackView() -> UIStackView {
-        let stackView = UIStackView(arrangedSubviews: [labelName2, labelPrice2, labelDescription2])
-        stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
-       stackView.spacing = 0
-        return stackView
-    }
+    
+    var labelDiscount2: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .right
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.numberOfLines = 0
+        return label
+    }()
+    
+  
     @objc func goBack(sender:UIBarButtonItem){
         self.navigationController?.popToRootViewController(animated: true)
     }
@@ -67,37 +76,41 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
-        let stackView = mainStackView()
         
-        stackView.frame = view.frame
-        view.addSubview(stackView)
-        self.title = labelName
-       labelName2.text = "name: \(labelName)"
-        labelPrice2.text = "Price: \(labelPrice)"
-        labelDescription2.text = "Description: \(labelDescription)"
-        // var image = UIImage(named: "arrow")
-        //image = image?.withRenderingMode(.alwaysOriginal)
-        //let item = UIBarButtonItem(image: image, style:.plain, target: nil, action: nil)
-        //navigationController?.navigationItem.backBarButtonItem =  item
-        
-        self.navigationController?.navigationBar.barTintColor = .white
-         stackView.translatesAutoresizingMaskIntoConstraints = false
-     labelName2.translatesAutoresizingMaskIntoConstraints = false
-     labelPrice2.translatesAutoresizingMaskIntoConstraints = false
-     labelDescription2.translatesAutoresizingMaskIntoConstraints = false
-        
-        stackView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100).isActive = true
-
-        stackView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -70).isActive = true
-        stackView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant:16).isActive = true
-        stackView.rightAnchor.constraint(equalTo: self.view.rightAnchor,constant:-16).isActive = true
-        stackView.heightAnchor.constraint(equalToConstant: view.frame.height/2 ).isActive = true
+      //  stackView.frame = view.frame
+        view.addSubview(labelName2)
+        view.addSubview(labelDescription2)
+        view.addSubview(labelPrice2)
+        view.addSubview(labelDiscount2)
        
-        view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
-        view.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant:0).isActive = true
-        view.rightAnchor.constraint(equalTo: self.view.rightAnchor,constant:0).isActive = true
-        view.heightAnchor.constraint(equalToConstant: view.frame.height/2).isActive = true
+        self.title = labelName
+        labelName2.text = "name: \(labelName)"
+        labelPrice2.text = "\(labelPrice) USD Dollars"
+        labelDescription2.text = "Description: \(labelDescription)"
+        labelDiscount2.text = "\(labelDiscount) USD Dollars discount"
+     
+        self.navigationController?.navigationBar.barTintColor = .white
+        
+        labelName2.translatesAutoresizingMaskIntoConstraints = false
+        labelPrice2.translatesAutoresizingMaskIntoConstraints = false
+        labelDescription2.translatesAutoresizingMaskIntoConstraints = false
+        labelDiscount2.translatesAutoresizingMaskIntoConstraints = false
+
+        labelName2.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 115).isActive = true
+        labelName2.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant:16).isActive = true
+        labelName2.rightAnchor.constraint(equalTo: self.view.rightAnchor,constant:-16).isActive = true
+        
+        labelDescription2.topAnchor.constraint(equalTo:  labelName2.bottomAnchor, constant: 7).isActive = true
+        labelDescription2.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant:16).isActive = true
+        labelDescription2.rightAnchor.constraint(equalTo: self.view.rightAnchor,constant:-16).isActive = true
+        
+        labelPrice2.topAnchor.constraint(equalTo:  labelDescription2.bottomAnchor, constant: 7).isActive = true
+        labelPrice2.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant:16).isActive = true
+       labelPrice2.rightAnchor.constraint(equalTo: labelDiscount2.leftAnchor).isActive = true
+       
+        labelDiscount2.topAnchor.constraint(equalTo:  labelDescription2.bottomAnchor, constant: 7).isActive = true
+       //labelDiscount2.leftAnchor.constraint(equalTo: labelPrice2.rightAnchor, constant: 5).isActive = true
+        labelDiscount2.rightAnchor.constraint(equalTo: self.view.rightAnchor,constant:-16).isActive = true
         
     }
- 
 }

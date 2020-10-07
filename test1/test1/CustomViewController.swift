@@ -99,9 +99,6 @@ class CustomViewController: UICollectionViewController {
             guard error == nil else { return}
             do {
                 let dataProp = try JSONDecoder().decode(Response.self, from: data)
-
-                print("refresh")
-                //self.dataArray = dataProp.data
                 self.dataArray.append(contentsOf: dataProp.data)
                 DispatchQueue.main.async {
                     if refresh {
@@ -127,7 +124,6 @@ class CustomViewController: UICollectionViewController {
             price: "price: \(dataArray[indexPath.item].price)",
             description: "description: \(dataArray[indexPath.item].description)"
         )
-        
         return cell
     }
 
@@ -145,12 +141,11 @@ class CustomViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView,
                      willDisplay cell: UICollectionViewCell,
                        forItemAt indexPath: IndexPath) {
-        
         if indexPath.row == dataArray.count - 1 {
             page += 1
             fetchProducts(refresh: false)
         }
-}
+   }
 }
 extension CustomViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(

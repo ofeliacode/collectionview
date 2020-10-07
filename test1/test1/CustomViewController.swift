@@ -42,9 +42,7 @@ class CustomViewController: UICollectionViewController {
     // MARK: Private properties
   
     var dataArray = [Datas]()
-    var total = 0
     var page = 0
-    var limit = 20
     // MARK: UIViewController
 
     override func viewDidLoad() {
@@ -88,7 +86,8 @@ class CustomViewController: UICollectionViewController {
    
     
     func fetchProducts(refresh: Bool) {
-        let urlString = "https://gorest.co.in/public-api/products"
+        
+        let urlString = "https://gorest.co.in/public-api/products?page=\(page)"
         if refresh {
             refresher?.beginRefreshing()
         }
@@ -102,7 +101,8 @@ class CustomViewController: UICollectionViewController {
                 let dataProp = try JSONDecoder().decode(Response.self, from: data)
 
                 print("refresh")
-                self.dataArray = dataProp.data
+                //self.dataArray = dataProp.data
+                self.dataArray.append(contentsOf: dataProp.data)
                 DispatchQueue.main.async {
                     if refresh {
                         self.refresher?.endRefreshing()
@@ -142,13 +142,14 @@ class CustomViewController: UICollectionViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
    
-    func collectionView(_ collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell,
-                        forItemAt indexPath: IndexPath) {
+    override func collectionView(_ collectionView: UICollectionView,
+                     willDisplay cell: UICollectionViewCell,
+                       forItemAt indexPath: IndexPath) {
         
         if indexPath.row == dataArray.count - 1 {
-            print(indexPath.row)
-        
-    }
+            page += 1
+            fetchProducts(refresh: false)
+        }
 }
 }
 extension CustomViewController: UICollectionViewDelegateFlowLayout {

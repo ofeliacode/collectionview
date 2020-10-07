@@ -85,8 +85,7 @@ class CustomViewController: UICollectionViewController {
         super.viewWillTransition(to: size, with: coordinator)
     }
     // MARK: Pagination
-    var total = 1
-    var page = 1
+   
     
     func fetchProducts(refresh: Bool) {
         let urlString = "https://gorest.co.in/public-api/products"
@@ -142,8 +141,16 @@ class CustomViewController: UICollectionViewController {
         
         self.navigationController?.pushViewController(vc, animated: true)
     }
+   
+    func collectionView(_ collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell,
+                        forItemAt indexPath: IndexPath) {
+        
+        if indexPath.row == dataArray.count - 1 {
+            print(indexPath.row)
+        
+    }
 }
-
+}
 extension CustomViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(
         _ collectionView: UICollectionView,

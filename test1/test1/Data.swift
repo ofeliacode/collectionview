@@ -24,5 +24,6 @@ struct Meta: Decodable {
 struct Pagination: Decodable {
     let total: Int
     let pages: Int
+    let page: Int
     let limit: Int
 }

@@ -42,7 +42,8 @@ class CustomViewController: UICollectionViewController {
     // MARK: Private properties
   
     var dataArray = [Datas]()
-    var pagination = Pagination(total: 1, pages: 1, page: 1, limit: 20)
+    static let initialPage = Pagination(total: 1, pages: 1, page: 1, limit: 20)
+    lazy var pagination = Self.initialPage
     // MARK: UIViewController
 
     override func viewDidLoad() {
@@ -95,6 +96,9 @@ class CustomViewController: UICollectionViewController {
    
     
     func fetchProducts(refresh: Bool) {
+        if refresh {
+            pagination = Self.initialPage
+        }
         guard pagination.page <= pagination.pages else {
             return
         }
@@ -111,7 +115,11 @@ class CustomViewController: UICollectionViewController {
             guard error == nil else { return}
             do {
                 let dataProp = try JSONDecoder().decode(Response.self, from: data)
-                self.dataArray.append(contentsOf: dataProp.data)
+                if refresh {
+                    self.dataArray = dataProp.data
+                } else {
+                    self.dataArray.append(contentsOf: dataProp.data)
+                }
                 self.pagination = Pagination(
                     total: dataProp.meta.pagination.total,
                     pages: dataProp.meta.pagination.pages,

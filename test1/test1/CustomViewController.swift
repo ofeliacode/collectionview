@@ -48,9 +48,6 @@ class CustomViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         showSpinner()
-        self.refresher = UIRefreshControl()
-        self.refresher.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-        collectionView!.addSubview(refresher!)
         title = "Products"
         collectionView.register(CustomViewCell.self, forCellWithReuseIdentifier: CustomViewCell.identifier)
         collectionView.backgroundColor = UIColor(red: 0.898, green: 0.898, blue: 0.898, alpha: 1)
@@ -60,6 +57,17 @@ class CustomViewController: UICollectionViewController {
     }
     
     // MARK: refresh
+
+    private func setupRefreshControlIfNeeded() {
+        guard refresher == nil else {
+            return
+        }
+
+        let refresher = UIRefreshControl()
+        refresher.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        collectionView?.addSubview(refresher)
+        self.refresher = refresher
+    }
     
    @objc func refreshData() {
     fetchProducts(refresh: true)
@@ -106,6 +114,7 @@ class CustomViewController: UICollectionViewController {
                     }
                     self.collectionView.reloadData()
                     self.removeSpinner()
+                    self.setupRefreshControlIfNeeded()
                 }
             } catch let error {
                 print(error)
